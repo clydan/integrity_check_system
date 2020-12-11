@@ -20,3 +20,14 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::prefix('super-admin')->name('super-admin.')->middleware('can:super-admin-ability')->group(function(){
+    Route::resource('/users', 'Admin\UserController');
+    Route::resource('/schools', 'InstitutionsController');
+    Route::resource('/students', 'StudentsController');
+});
+
+Route::prefix('admin')->name('admin.')->group(function(){
+    Route::resource('/schools', 'InstitutionsController');
+    Route::resource('/students', 'StudentsController');
+});

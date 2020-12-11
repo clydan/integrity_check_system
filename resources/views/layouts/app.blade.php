@@ -56,6 +56,7 @@
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
+                                
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
@@ -63,6 +64,13 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
+                                    @can('super-admin-ability')
+                                    <a class="dropdown-item" href="{{route('super-admin.users.index')}}"> User Management</a>
+                                    @endcan
+                                    
+                                    <a class="dropdown-item" href="{{route('super-admin.users.index')}}"> Students</a>
+                                    <a class="dropdown-item" href="{{route('super-admin.schools.index')}}"> Schools</a>
+                                    <a class="dropdown-item" href="{{route('super-admin.users.index')}}"> All Reports</a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
