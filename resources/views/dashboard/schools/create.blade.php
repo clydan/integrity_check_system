@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">Create a New University</div>
 
-                    <form class="m-5" method="POST" action="{{route('super-admin.schools.store')}}">
+                    <form class="m-5" method="POST" action="{{route('admin.schools.store')}}">
                         @csrf
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">School Name</label>
@@ -21,7 +21,7 @@
 
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">School's Address</label>
-                            <input name="address" type="password" class="form-control" id="exampleFormControlInput1">
+                            <input name="address" type="text" class="form-control" id="exampleFormControlInput1">
                         </div>
 
                         <button class="btn btn-primary" type="submit">Create School</button>

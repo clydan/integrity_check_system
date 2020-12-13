@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Student;
+use App\Models\Institution;
 use Illuminate\Http\Request;
 
 class StudentsController extends Controller
@@ -14,7 +15,8 @@ class StudentsController extends Controller
      */
     public function index()
     {
-        
+        $students = Student::all();
+        return view('dashboard.students.index')->with('students', $students);
     }
 
     /**
@@ -24,7 +26,11 @@ class StudentsController extends Controller
      */
     public function create()
     {
-        //
+        $thisUser = auth()->user();
+        $usersInstitutionId = $thisUser->Institution_id;
+        $institution = Institution::where('id', $usersInstitutionId)->first();
+        $institutionId = $institution->id;
+        return view('dashboard.students.create')->with('institution', $institution);
     }
 
     /**
@@ -35,7 +41,20 @@ class StudentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $data = request()->validate([
+            'name' => 'required|string',
+            'email' => 'email|required',
+            'contact' => 'required|string',
+            'level' => 'required|string',
+            'institution_id' => 'required'
+        ]);
+
+        if($data){
+            Student::create($data);
+            return redirect()->route('admin.students.index');
+        }
+        return redirect()->back();
     }
 
     /**

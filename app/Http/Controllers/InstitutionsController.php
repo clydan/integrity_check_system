@@ -36,7 +36,19 @@ class InstitutionsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = request()->validate([
+            'name' => 'string|required',
+            'email' => 'email|required',
+            'address' => 'string|required'
+        ]);
+
+        if($data){
+            Institution::create($data);
+            return redirect()->route('admin.schools.index');
+        }
+        return redirect()->back();
+
+        
     }
 
     /**
