@@ -28,5 +28,10 @@ Route::prefix('super-admin')->name('super-admin.')->middleware('can:super-admin-
 Route::prefix('admin')->name('admin.')->group(function(){
     Route::resource('/schools', 'InstitutionsController');
     Route::resource('/students', 'StudentsController');
+    Route::resource('/reports', 'ReportsController');
     Route::get('/your-students', 'UtilitiesController@usersStudents')->name('yourstudent');
+    Route::get('/your-students/create/{id}', 'UtilitiesController@createReport')->name('yourstudent-create-report');
+    Route::get('/school-students/{id}', 'UtilitiesController@schoolsStudents')->name('schools-students');
+    Route::get('/view-report/{id}', 'UtilitiesController@showReport')->name('show-report');
+
 });
