@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Students List <a href="{{route('admin.students.create')}}"><button class="btn btn-primary">Create new Student</button></a></div>
+                <div class="card-header">Students List </div>
 
                 
                     <table class="table table-dark table-striped table-hover">
@@ -26,7 +26,7 @@
                                     {{$student->institution->name}}
                                 </td>
                                 <td>
-                                    <a href="#"><button class="btn btn-warning" type="submit">View Reports</button></td> </a>
+                                    <a href="{{route('admin.show-report', $student->id)}}"><button class="btn btn-warning" type="submit">View Reports</button></td> </a>
                               </tr>
                             @endforeach
                           

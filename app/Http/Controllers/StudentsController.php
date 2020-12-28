@@ -49,7 +49,7 @@ class StudentsController extends Controller
             'level' => 'required|string',
             'institution_id' => 'required'
         ]);
-
+            
         if($data){
             Student::create($data);
             return redirect()->route('admin.students.index');

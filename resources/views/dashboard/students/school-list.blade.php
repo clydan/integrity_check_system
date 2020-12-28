@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{$institution->name}}'s Student List <a href="{{route('admin.students.create')}}"><button class="btn btn-primary">Create new Student</button></a></div>
+                <div class="card-header">Students List</div>
 
                 
                     <table class="table table-dark table-striped table-hover">
@@ -18,7 +18,7 @@
                           </tr>
                         </thead>
                         <tbody>
-                            @foreach ($thisUsersStudents as $student)
+                            @foreach ($students as $student)
                             <tr>
                                 <th scope="row">{{$student->id}}</th>
                                 <td>{{$student->name}}</td>
@@ -26,9 +26,7 @@
                                     {{$student->institution->name}}
                                 </td>
                                 <td>
-                                    <a href="{{route('admin.show-report', $student->id)}}"><button class="btn btn-warning" type="submit">View Reports</button></a> 
-                                    <a href="{{route('admin.yourstudent-create-report', $student->id)}}"><button class="btn btn-danger ml-2 mt-2" type="submit">Add Report</button></a>
-                                </td> 
+                                    <a href="{{route('admin.show-report', $student->id)}}"><button class="btn btn-warning" type="submit">View Reports</button></td> </a>
                               </tr>
                             @endforeach
                           

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Report;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class ReportsController extends Controller
@@ -22,9 +23,9 @@ class ReportsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Student $student)
     {
-        //
+    //
     }
 
     /**
@@ -35,7 +36,17 @@ class ReportsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = request()->validate([
+            'title' => 'required|string',
+            'offence' => 'required|string',
+            'student_id' => 'required'
+        ]);
+            
+        if($data){
+            Report::create($data);
+            return redirect()->route('admin.yourstudent');
+        }
+        return redirect()->vack();
     }
 
     /**

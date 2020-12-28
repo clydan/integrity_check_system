@@ -14,7 +14,7 @@
                             <div class="card-body">
                             <h5 class="card-title">{{$institution->address}}</h5>
                             <p class="card-text">{{$institution->email}}</p>
-                            <button class="btn btn-secondary">View Students</button><button class="btn btn-warning">Edit School</button>
+                            <a href="{{route('admin.schools-students', $institution->id)}}"><button class="btn btn-secondary">View Students</button></a><a href=""></a><button class="btn btn-warning">Edit School</button>
                             </div>
                         </div>
                     @endforeach

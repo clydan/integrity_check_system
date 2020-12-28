@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Users Management</div>
+                <div class="card-header">Users Management <a href="{{route('super-admin.users.create')}}"><button class="btn btn-primary">Create User</button></a></div>
 
                 
                     <table class="table table-dark table-striped table-hover">
