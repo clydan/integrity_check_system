@@ -107,7 +107,15 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $userId = $user->id;
+        $data = request()->validate([
+            'name' => 'required',
+            'email' => 'required|email'
+        ]);
+
+        User::where('id', $userId)->update($data);
+
+        return redirect()->route('super-admin.users.index');
     }
 
     /**
@@ -119,5 +127,9 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         //
+    }
+
+    public function updatePassword(Request $request, User $user){
+        dd($request);
     }
 }

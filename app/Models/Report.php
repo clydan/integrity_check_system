@@ -12,6 +12,6 @@ class Report extends Model
     protected $guarded = [];
 
     public function student(){
-        $this->belongsTo('App\Models\Student');
+        return $this->belongsTo('App\Models\Student');
     }
 }

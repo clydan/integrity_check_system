@@ -18,6 +18,7 @@ class CreateReportsTable extends Migration
             $table->unsignedInteger('student_id')->nullable();
             $table->string('title');
             $table->text('offence');
+            $table->integer('confirmation_status')->default(0);
             $table->timestamps();
         });
     }

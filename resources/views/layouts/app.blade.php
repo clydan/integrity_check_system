@@ -66,6 +66,7 @@
                                     </a>
                                     @can('super-admin-ability')
                                     <a class="dropdown-item" href="{{route('super-admin.users.index')}}"> User Management</a>
+                                    <a class="dropdown-item" href="{{route('admin.confirm')}}"> Report Management </a>
                                     @endcan
                                     
                                     <a class="dropdown-item" href="{{route('admin.schools.index')}}"> Schools</a>
