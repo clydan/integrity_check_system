@@ -71,7 +71,10 @@
                                     
                                     <a class="dropdown-item" href="{{route('admin.schools.index')}}"> Schools</a>
                                     <a class="dropdown-item" href="{{route('admin.students.index')}}"> Students</a>
-                                    <a class="dropdown-item" href="{{route('admin.yourstudent')}}"> My Students                                                                                                                                                                               </a>
+                                    @can('officer-admin-ability')
+                                    <a class="dropdown-item" href="{{route('admin.yourstudent')}}"> My Students  
+                                    @endcan
+                                                                                                                                                                                                                  </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf

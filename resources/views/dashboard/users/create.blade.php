@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">Create User</div>
                 <div >
-                    <form   method="POST" action="{{route('super-admin.users.store')}}">
+                    <form class="m-5"  method="POST" action="{{route('super-admin.users.store')}}">
                         @csrf
                         <div class="mb-3">
                             <label for="name" class="form-label">Name:</label>
@@ -22,7 +22,7 @@
                         
                         <div class="mb-3">
                             <label for="password" class="form-label">Password:</label>
-                            <input name="password" type="password" class="form-control" id="password" >
+                            <input name="password" type="text" class="form-control" id="password" >
                         </div>
     
                         <label for="exampleDataList" class="form-label">Select Institution</label>

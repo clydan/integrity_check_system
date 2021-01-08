@@ -68,9 +68,10 @@ class InstitutionsController extends Controller
      * @param  \App\Models\Institution  $institution
      * @return \Illuminate\Http\Response
      */
-    public function edit(Institution $institution)
+    public function edit(Institution $institution, $id)
     {
-        //
+        $thisInstitution = Institution::where('id', $id)->first();
+        return view('dashboard.schools.edit')->with('institution', $thisInstitution);
     }
 
     /**
@@ -80,9 +81,17 @@ class InstitutionsController extends Controller
      * @param  \App\Models\Institution  $institution
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Institution $institution)
+    public function update(Request $request, $id)
     {
-        //
+        $data = request()->validate([
+            'name' => 'required',
+            'address' => 'required',
+            'email' => 'required|email'
+        ]);
+
+        Institution::where('id', $id)->update($data);
+
+        return redirect()->back();
     }
 
     /**

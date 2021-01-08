@@ -9,7 +9,7 @@
 
                 
                     @foreach ($reports as $report)
-                    <div class="justify-content-center" style="max-width: 100%;">
+                    <div id="first" class="justify-content-center" style="max-width: 100%;">
                         <div class="bg-secondary card-header">{{$report->title}}</div>
                         <div class="card-body">
                           <h5 class="card-title">{{$report->created_at}}</h5>
@@ -22,4 +22,13 @@
         </div>
     </div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.2.0/jspdf.umd.min.js"></script>
+<script>
+    var doc = new jsPDF() 
+    var h1 = document.querySelector('#first')
+    doc.fromHTML(h1,15,15)
+    doc.save('output')
+</script>
+
 @endsection

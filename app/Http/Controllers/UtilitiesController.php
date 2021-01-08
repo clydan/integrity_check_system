@@ -59,6 +59,11 @@ class UtilitiesController extends Controller
         return view('dashboard.reports.verify-reports')->with('unconfirmed', $unconfirmed);   
     }
 
+    public function confirmedReports(){
+        $confirmed = Report::where('confirmation_status', 1)->get()->all();
+        return view('dashboard.reports.verified-reports')->with('confirmed', $confirmed);   
+    }
+
     public function confirmVerification($id, Request $request){
         $report = Report::where('id', $id)->first();
         $data = [

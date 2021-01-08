@@ -36,4 +36,9 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::get('/view-report/{id}', 'UtilitiesController@showReport')->name('show-report');
     Route::get('/reports-verification', 'UtilitiesController@unconfirmedReports')->name('confirm');
     Route::put('/reports-verifiction/{id}', 'UtilitiesController@confirmVerification')->name('verified');
+    Route::get('/reports-verified', 'UtilitiesController@confirmedReports')->name('confirmed');
 });
+
+// getting pdf 
+
+// Route::get('download-pdf', 'PDFController@studentdReports')->name('download-student-reports');
