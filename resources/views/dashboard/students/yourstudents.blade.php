@@ -29,10 +29,14 @@
                                 </td>
                                 <td>
                                     <div class="d-inline p-2 ">
-                                        <a href="{{route('admin.show-report', $student->id)}}"><button class="btn btn-primary" type="submit">View Reports</button></a> <a href="{{route('admin.yourstudent-create-report', $student->id)}}"><button class="btn btn-danger ml-2 mt-2" type="submit">Add Report</button></a>
+                                        <a href="{{route('admin.show-report', $student->id)}}"><button class="btn btn-info" type="submit">View Reports</button></a> <a href="{{route('admin.yourstudent-create-report', $student->id)}}"><button class="btn btn-danger ml-2 mt-2" type="submit">Add Report</button></a>
                                     </div>
                                     <div class="d-inline p-2 ">
-                                        
+                                        <a href="{{route('download-student-reports', $student->id)}}">
+                                            <button class="btn btn-success" type="button">
+                                                Get PDF <span class="badge">{{$student->reports->count()}}</span>
+                                              </button>
+                                        </a>
                                     </div>
                                 </td> 
                               </tr>

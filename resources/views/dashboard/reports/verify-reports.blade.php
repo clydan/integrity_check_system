@@ -29,7 +29,7 @@
                                     {{$item->student->institution->name}}
                                 </td>
                                 <td>
-                                    <a href="{{route('admin.show-report', $item->student->id)}}"><button class="btn btn-warning" type="submit">View</button></a>
+                                    <a href="{{route('admin.show-report', $item->student->id)}}"><button class="btn btn-info" type="submit">View</button></a>
                                 </td>
                                 <td>
                                     <form method="POST" action="{{route('admin.verified', $item->id)}}">

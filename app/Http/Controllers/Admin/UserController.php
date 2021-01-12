@@ -14,6 +14,7 @@ use Gate;
 
 class UserController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
@@ -35,6 +36,9 @@ class UserController extends Controller
      */
     public function create()
     {
+        if(Gate::denies('super-admin-ability')){
+            return redirect(route('home'));
+        }
         $institutions = Institution::all();
         return view('dashboard.users.create')->with('institutions', $institutions);
     }
@@ -47,6 +51,9 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        if(Gate::denies('super-admin-ability')){
+            return redirect(route('home'));
+        }
         $data = request()->validate([
             'name' => 'required',
             'email' => 'required',
@@ -126,10 +133,11 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
-    }
-
-    public function updatePassword(Request $request, User $user){
-        dd($request);
+        if(Gate::denies('super-admin-ability')){
+            return redirect(route('home'));
+        }
+        $id = $user->id;
+        User::where('id', $id)->delete();
+        return redirect()->back();
     }
 }

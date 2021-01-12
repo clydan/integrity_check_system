@@ -26,7 +26,7 @@
                                     {{$student->institution->name}}
                                 </td>
                                 <td>
-                                    <a href="{{route('admin.show-report', $student->id)}}"><button class="btn btn-warning" type="submit">View Reports</button></td> </a>
+                                    <a href="{{route('admin.show-report', $student->id)}}"><button class="btn btn-info" type="submit">View Reports</button></td> </a>
                               </tr>
                             @endforeach
                           

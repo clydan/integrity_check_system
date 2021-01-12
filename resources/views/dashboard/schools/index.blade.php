@@ -18,7 +18,7 @@
                             <div class="card-body">
                             <h5 class="card-title">{{$institution->address}}</h5>
                             <p class="card-text">{{$institution->email}}</p>
-                            <a href="{{route('admin.schools-students', $institution->id)}}"><button class="btn btn-secondary">View Students</button></a><a href=""></a>
+                            <a href="{{route('admin.schools-students', $institution->id)}}"><button class="btn btn-info">View Students</button></a><a href=""></a>
                             @can('super-admin-ability')
                                 <a href="{{route('admin.schools.edit', $institution->id)}}"><button class="btn btn-warning">Edit School</button></a>
                             @endcan

@@ -41,4 +41,4 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
 // getting pdf 
 
-// Route::get('download-pdf', 'PDFController@studentdReports')->name('download-student-reports');
+Route::get('download-pdf/{id}', 'PDFController@studentReports')->name('download-student-reports');

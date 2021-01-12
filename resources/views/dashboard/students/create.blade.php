@@ -38,7 +38,7 @@
 
 
 
-                        <button class="btn btn-primary" type="submit">Create School</button>
+                        <button class="btn btn-primary" type="submit">Create Student</button>
                         
                     </form>
                 

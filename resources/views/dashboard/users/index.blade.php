@@ -24,8 +24,21 @@
                                 <td>{{$user->name}}</td>
                                 <td>{{$user->email}}</td>
                                 <td>
-                                    <a href="{{route('super-admin.users.destroy', $user->id )}}"><button class="btn btn-danger" type="submit">Delete</button></a> 
-                                    <a href="{{route('super-admin.users.edit', $user->id )}}"><button class="btn btn-warning" type="submit">Patch</button></td> </a>
+                                    @if ($user->id != 1)
+
+                                    <div class="d-inline">
+                                        <form class="d-inline" method="POST" action="{{route('super-admin.users.destroy', $user)}}">@csrf @method('DELETE')<button class="btn btn-danger" type="submit">Delete</button></form>
+                                        <a class="d-inline" href="{{route('super-admin.users.edit', $user->id)}}"><button class="btn btn-warning" type="submit">Patch</button></td> </a>
+                                    </div>
+                                        
+                                    @else
+
+                                    <div class="d-inline">
+                                        <form class="d-inline" method="POST" action="{{route('super-admin.users.destroy', $user)}}">@csrf @method('DELETE')<button disabled class="btn btn-danger" type="submit">Delete</button></form>
+                                        <a class="d-inline" href="{{route('super-admin.users.edit', $user->id)}}"><button class="btn btn-warning" type="submit">Patch</button></td> </a>
+                                    </div>
+                                        
+                                    @endif
                               </tr>
                             @endforeach
                           
